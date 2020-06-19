@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+$base-font: 37.5px;
+@function pxTorem($px) {
+    @return $px / $base-font *1rem;
+}
+
+@mixin box {
+    width: 100%;
+    height: 100%;
+}
+
+html,
+body {
+    @include box;
+}
+
+.wrapper {
+    @include box;
+    display: flex;
+    flex-direction: column;
+    .main {
+        width: 100%;
+        flex: 1;
+        overflow-y: scroll;
+        .head {
+            // position: relative;
+            width: 100%;
+            height: pxTorem(100px);
+            margin-bottom: pxTorem(10px);
+            .address {
+                width: 100%;
+                height: pxTorem(65px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 pxTorem(15px);
+                .left {
+                    font-size: pxTorem(20px);
+                }
+                .right {
+                    color: skyblue;
+                    font-size: pxTorem(14px);
+                }
+            }
+            .search {
+                width: 100%;
+                height: pxTorem(35px);
+                padding: 0 pxTorem(15px);
+                input {
+                    border: none;
+                    background: #ccc;
+                    @include box;
+                    border-radius: pxTorem(20px);
+                    text-align: center;
+                }
+            }
+            .fix {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 999;
+            }
+        }
+        .banner {
+            width: 90%;
+            height: pxTorem(90px);
+            margin: 0 auto;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            .swiper-pagination-bullet {
+                width: pxTorem(10px);
+                height: pxTorem(2px);
+                background: #fff;
+            }
+        }
+        .lijian {
+            width: 100%;
+            height: pxTorem(150px);
+            img {
+                width: 100%;
+            }
+        }
+        .icons {
+            width: 100%;
+            height: pxTorem(150px);
+            .icons-slide {
+                display: flex;
+                flex-wrap: wrap;
+                dl {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20%;
+                    height: 50%;
+                }
+                img {
+                    width: pxTorem(35px);
+                }
+            }
+            .icons-pagination {
+                bottom: 0;
+            }
+            .swiper-pagination-bullet {
+                width: pxTorem(10px);
+                height: pxTorem(2px);
+                background: #666;
+            }
+            .swiper-pagination-bullet-active {
+                background: skyblue;
+            }
+        }
+        .list {
+            width: 100%;
+            li {
+                width: 100%;
+                height: pxTorem(150px);
+                display: flex;
+                justify-content: space-between;
+                padding: 0 pxTorem(15px);
+                img {
+                    width: pxTorem(100px);
+                    height: pxTorem(100px);
+                    flex-shrink: 0;
+                }
+                .right {
+                    flex: 1;
+                    margin-left: pxTorem(15px);
+                    .name {
+                        width: pxTorem(240px);
+                        height: pxTorem(25px);
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis; //省略号...
+                        font-size: pxTorem(18px);
+                    }
+                    .star {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        width: 100%;
+        height: pxTorem(50px);
+        background: gray;
+    }
+}
